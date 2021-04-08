@@ -1,7 +1,8 @@
 body {
   margin: 0;
   font-family: "Lato", sans-serif;
-  background-color:#FAE9E5;
+
+  background-color:#eee4e2;
   font-size: large;
 }
 
@@ -56,9 +57,12 @@ div.nalog{
 }
 .footer{
   margin-top:75px;
-  padding:20px;
+  padding-top:20px;
+  padding-bottom:20px;
+  padding-right: 5px;
   text-align: right;
   background-color:#E0826E;
+  color:white;
 }
 @media screen and (max-width: 700px) {
   .sidebar {
@@ -76,6 +80,7 @@ div.nalog{
     text-align: center;
     float: none;
   }
+  div.footer {width:100%;}
   
 }
 
@@ -122,4 +127,71 @@ div.nalog{
 .button:hover span:after {
   opacity: 1;
   right: 0;
+}
+@media screen and (max-width: 580px){
+    .wrapper{
+      font-size: 16px;
+    line-height: 22px;
+    }
+}
+.wrapper{
+  margin:  auto;
+  padding: 5px;
+  max-width: 800px;
+}
+.table{
+  margin: 0 0 40px 0;
+  width: 100%;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+  display: table;}
+  @media screen and (max-width: 580px){
+    .table{
+      display: block;
+    }
+  }
+.row{
+  display: table-row;
+  background: #f6f6f6;
+}
+.head{
+  font-weight: 900;
+    color: #ffffff;
+    background: #ea6153;
+}
+@media screen and (max-width: 580px)   {
+  .wrapper{
+    padding: 1px 0 7px;
+    display: block;
+  }
+.head{
+  padding: 0;
+  height: 6px;
+}
+  .cell{
+    display: none;
+  }
+.cell{
+  margin-bottom: 10px;
+}
+  :before{
+    margin-bottom: 3px;
+    content: attr(data-title);
+    font-size: 5px;
+    line-height: 10px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #969696;;
+    display: block;
+  }
+}
+.cell{
+padding: 6px ;
+display: table-cell;
+}
+
+@media screen and (max-width: 580px){
+  .wrapper {
+    padding: 2px;
+  display: block;
+  }
 }

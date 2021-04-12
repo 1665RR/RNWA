@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript"> </script> 
+<script>
+$(document).ready(function() {
+   $("#dataTable").load("table.php");
+});
+$(document).ready(function(){
+	$("#myInput").keyup(function(){
+		var value = $(this).val().toLowerCase();
+		$("#dataTable").load("search.php?s=" + value);
+		});
+	});
+
+</script>
+<link rel="stylesheet" type="text/css" href="stil.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title> Zadaca 2.2</title>
+</head>
+<body >
+  <div class="header">
+    <h1>WorkOrder CMS</h1>
+  </div>
+    <div class="sidebar">
+        <a class="active" href="CSM.html">Home</a>
+        <a href="dz21.html"> DZ002_001</a>
+        <a href="dz22.html">DZ002_002</a>
+        <a href="dz23.html">DZ002_003</a>
+      </div>
+	  
+      <div class="content" id="con">
+        <div class="wrapper" id="dz21">
+          <h3 class="title" style="text-align: center;"> DZ002_002</h3>
+          <h5>Tvrtke suradnici:</h5>
+          <form> 
+			Naziv tvrtke: <input type="text" id="myInput">
+			</form>
+			<p>Prijedlog:<br><br>  </p>
+			<div id="dataTable"> </div>
+		</div>
+     </div>  
+    <div class="footer">
+      
+    </div>
+       </div>
+</body>
+</html>

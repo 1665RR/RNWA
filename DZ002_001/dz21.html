@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="stil.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title> Zadaca 2.1</title>
+<script>
+function showHint(str) {
+    if (str.length == 0) { 
+        document.getElementById("txtHint").innerHTML = "";
+        return;
+    } else {
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                document.getElementById("txtHint").innerHTML = xmlhttp.responseText;
+            }
+        }
+        xmlhttp.open("GET", "search.php?s=" + str, true);
+        xmlhttp.send();
+    }
+}
+function showTable(){
+	var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                document.getElementById("txtHint").innerHTML = xmlhttp.responseText;
+            }
+        }
+        xmlhttp.open("GET", "table.php", true);
+        xmlhttp.send();
+
+}
+
+</script>
+</head>
+<body  onload="javascript:showTable()">
+  <div class="header">
+    <h1>WorkOrder CMS</h1>
+  </div>
+    <div class="sidebar">
+        <a class="active" href="CSM.html">Home</a>
+        <a href="dz21.html"> DZ002_001</a>
+        <a href="dz22.html">DZ002_002</a>
+        <a href="dz23.html">DZ002_003</a>
+      </div>
+      
+    <div class="content" id="con">
+
+        <div class="wrapper" id="dz21">
+          <h3 class="title" style="text-align: center;"> DZ002_001</h3>
+          <h5>Tvrtke suradnici:</h5>
+          <form> 
+			Naziv tvrtke: <input type="text" onkeyup="showHint(this.value)">
+			</form>
+			<p>Prijedlog:<br><br> <span id="txtHint"span> </p>
+		</div>
+     </div>  
+     <div class="footer">
+      
+    </div>
+     
+</body>
+</html>

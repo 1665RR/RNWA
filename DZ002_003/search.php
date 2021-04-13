@@ -46,7 +46,8 @@ if ($n > 0){
 			
 		}
 	}
-else {
+else { 
+	echo"<b>Nema prijedloga</b>";
 }	
 }
 else {

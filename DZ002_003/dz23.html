@@ -4,7 +4,7 @@
 <link rel="stylesheet" type="text/css" href="stil.css">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title> Zadaca 2.1</title>
+<title> Zadaca 2.3</title>
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,10 +25,8 @@
 
     }
     $(document).ready(function(){
-      
-      let inp = $('#myInput')
-
-      inp.keyup(async function(){
+      $('#myInput').keyup(async function(){
+		$('#dataTable').hide();
         let str = $('#myInput').val()
         if(str.length === 0)
         {

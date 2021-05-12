@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<definitions name="HelloWorld" targetNamespace="urn:HelloWorld" xmlns:tns="urn:HelloWorld"  xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:Test">
+      <xsd:element name="dataType" type="xsd:integer" />
+	   <xsd:element name="konverzijaBAMToEURResponse" type="xsd:integer" />
+	  <xsd:element name="konverzijaEURToBAMResponse" type="xsd:integer" />	 
+	 	 
+	</xsd:schema>			
+  </types>
+      <message name="konverzijaBAMToEUR">
+    <part name="yourValue" type="tns:dataType" />
+  </message>
+  
+  <message name="konverzijaBAMToEURResponse">
+    <part name="return" type="tns:dataType" />
+  </message>  
+  
+  <message name="konverzijaEURToBAM">
+    <part name="yourValue1" type="tns:dataType" />
+  </message>
+  
+  <message name="konverzijaEURToBAMResponse">
+    <part name="return" type="tns:dataType" />
+  </message>
+  
+
+  <portType name="ConvertPort">
+    <operation name="konverzijaEURToBAM">
+	  <input message="tns:konverzijaEURToBAM" />
+	  <output message="tns:konverzijaEURToBAMResponse" />
+	</operation>
+  </portType>
+  
+  <binding name="bind" type="tns:ConvertPort">
+	  <operation name="konverzijaEURToBAM">
+	    <soap:operation soapAction="urn:ConvertAction" />
+		<input>
+		  <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />		  
+		</input>
+		<output>
+		  <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />		  
+		</output>
+	  </operation>
+  </binding>
+  
+  <portType name="ConvertPort1">
+    <operation name="konverzijaBAMToEUR">
+	  <input message="tns:konverzijaBAMToEUR" />
+	  <output message="tns:konverzijaBAMToEURResponse" />
+	</operation>
+  </portType>
+  
+  <binding name="bind1" type="tns:ConvertPort1">
+	  <operation name="konverzijaBAMToEUR">
+	    <soap:operation soapAction="urn:ConvertAction" />
+		<input>
+		  <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />		  
+		</input>
+		<output>
+		  <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />		  
+		</output>
+	  </operation>
+  </binding>
+  
+  <service name="Service">
+    <port name="ConvertPort" binding="tns:bind">
+	  <soap:address location="http://localhost/WSDL_SOAP_1(sve_skupa)/konverzijaEURToBAM.php"/>
+	</port>
+  </service>
+  
+    <service name="Service1">
+    <port name="ConvertPort1" binding="tns:bind1">
+	  <soap:address location="http://localhost/WSDL_SOAP_1(sve_skupa)/konverzijaBAMToEUR.php"/>
+	</port>
+  </service>
+    
+</definitions>

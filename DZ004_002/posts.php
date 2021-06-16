@@ -104,7 +104,7 @@
 	 function delete_posts($id)
 	{
 		global $connection;
-		$query="DELETE FROM posts WHERE id=".$id."";
+		$query="DELETE FROM company WHERE id=".$id."";
 		//promijeniti delete broj zahvacenih redaka
 		$number_of_rows=0;
 			
